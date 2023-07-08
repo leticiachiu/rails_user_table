@@ -15,7 +15,7 @@ class UserController < ApplicationController
   end
 
   def show
-    @user = UserRepository.find(params[:id])
+    @user = User.find(params[:id])
 
     if @user.nil?
       flash[:danger] = 'User not found'
@@ -28,7 +28,7 @@ class UserController < ApplicationController
   private
 
   def paginated_users(users_per_page, users_offset)
-    UserRepository.all.limit(users_per_page).offset(users_offset)
+    User.all.limit(users_per_page).offset(users_offset)
   end
 
   def calculate_total_pages(total_users, users_per_page)

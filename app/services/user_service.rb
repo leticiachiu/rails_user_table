@@ -6,10 +6,12 @@ class UserService
     uri = URI(UserConstants::API_URL)
     response = Net::HTTP.get_response(uri)
 
-    raise "Erro na requisição: #{response.code} #{response.message}" unless response.is_a?(Net::HTTPSuccess)
+    unless response.is_a?(Net::HTTPSuccess)
+      raise "Erro na requisição: #{response.code}"
+    end
 
     JSON.parse(response.body)
   rescue StandardError => e
-    raise "Erro de rede: #{e.message}"
+    raise e.message.to_s
   end
 end
