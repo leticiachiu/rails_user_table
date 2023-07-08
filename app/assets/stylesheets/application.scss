@@ -1,0 +1,32 @@
+@import 'bootstrap';
+@import 'colors';
+@import 'fonts';
+
+.h1 {
+  text-align: left;
+  font-weight: bold;
+  margin: 80px 20px 30px 10px;
+}
+
+.box {
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+body {
+  background-color: $purple-1;
+  font-family: 'Lato', sans-serif;
+}
+
+#table-container {
+  min-width: 500px;
+  background-color: $white;
+  margin: 0 auto;
+  border: 1px solid $purple-2;
+  border-radius: 10px;
+}
+
+.table-pagination {
+  margin: 0 auto;
+}

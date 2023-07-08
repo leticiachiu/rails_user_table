@@ -1,0 +1,21 @@
+<div class="box">
+  <h1 class="h1">List of users</h1>
+  <div id="table-container" class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @data.each do |user| %>
+          <%= render partial: 'user/user_row', locals: { user: user } %>
+        <% end %>
+      </tbody>
+    </table>
+    <span class="pagination justify-content-center"><%= render 'user_table_pagination', pagination: @pagination %></span>
+  </div>
+<div>
