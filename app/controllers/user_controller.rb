@@ -1,4 +1,6 @@
 class UserController < ApplicationController
+  before_action :fetch_users_data, only: [:index, :show]
+
   def index
     users_per_page = UserConstants::PER_PAGE
     current_page = params[:page].to_i || 1
