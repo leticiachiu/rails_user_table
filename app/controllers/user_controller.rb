@@ -18,13 +18,10 @@ class UserController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
-    if @user.nil?
-      flash[:danger] = 'User not found'
-      redirect_to users_path
-    else
-      render 'show'
-    end
+    render 'show'
+  rescue ActiveRecord::RecordNotFound
+    flash[:danger] = 'User not found'
+    redirect_to users_path
   end
 
   private
